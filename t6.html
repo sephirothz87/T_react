@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="./react.min.js"></script>
+		<script src="./react-dom.min.js"></script>
+		<script src="./browser.min.js"></script>
+	</head>
+	<body>
+		<div id="example"></div>
+		<script type="text/babel">
+			var MyTitle = React.createClass({
+				propTypes:{
+				    title: React.PropTypes.string.isRequired,
+				},
+				render:function(){
+					return <h1>{this.props.title}</h1>;
+				}
+			});
+
+			//实际上这个限制并没有起作用，不知道是否是新版的React有纠错
+            var data = 123;//可以显示
+//            var data = [123,456,789];//可以显示123456789
+//			var data = 'aaa';
+
+            ReactDOM.render(
+					<MyTitle title={data} />,
+                document.body
+            );
+		</script>
+	</body>
+</html>
